@@ -1,20 +1,13 @@
 import React from 'react'
-import { Flex, Box, Text, SimpleGrid, Icon, Img, Button, Table, Thead, Tbody, Tr, Td, Th, Badge } from '@chakra-ui/react'
-import { GiReceiveMoney } from 'react-icons/gi'
+import { Flex, Text, Icon, Button, Table, Thead, Tbody, Tr, Td, Th, Badge } from '@chakra-ui/react'
 import { GrAddCircle } from 'react-icons/gr'
-import { FaPercent } from 'react-icons/fa'
 
-import incomeImg from '../../assets/income.svg'
-import { Logo } from '../../components/Logo'
 import { Header } from '../../components/Header'
+import { SummaryPanel } from '../../components/SummaryPanel'
 
 export function Dashboard() {
   return (
-    <Flex
-      w="100vw"
-      h="100vh"
-      direction="column"
-    >
+    <Flex w="100vw" h="100vh" direction="column">
       <Header />
 
       <Flex
@@ -29,120 +22,7 @@ export function Dashboard() {
         pt="8"
         px="6"
       >
-        <SimpleGrid
-          w="100%"
-          h="36"
-          minChildWidth={360}
-          flexDirection="row"
-          gap="12"
-          my="6"
-        >
-          <Flex
-            w="100%"
-            h="36"
-            bg="facebook.50"
-            px="10"
-            py="2"
-            borderRadius={12}
-            boxShadow="lg"
-            direction="column"
-            justify="space-between"
-          >
-            <Box
-              as="header"
-              display="flex"
-              alignContent="center"
-              justifyContent="space-between"
-              pt="4"
-            >
-              <Text
-                textAlign="left"
-                color="gray.600"
-                fontWeight="thin"
-                fontSize="26"
-              >Vendas</Text>
-              <Img src={incomeImg} />
-            </Box>
-
-            <Text
-              mt="auto"
-              textAlign="left"
-              color="gray.600"
-              fontWeight="500"
-              fontSize="34"
-            >280 vendas</Text>
-          </Flex>          
-          <Flex
-            w="100%"
-            h="36"
-            bg="facebook.50"
-            px="10"
-            py="2"
-            borderRadius={12}
-            boxShadow="lg"
-            direction="column"
-            justify="space-between"
-          >
-            <Box
-              as="header"
-              display="flex"
-              alignContent="center"
-              justifyContent="space-between"
-              pt="4"
-            >
-              <Text
-                textAlign="left"
-                color="gray.600"
-                fontWeight="thin"
-                fontSize="26"
-              >Lucro estimado</Text>
-              <Icon as={GiReceiveMoney} color="green.500" fontSize="30" />
-            </Box>
-
-            <Text
-              mt="auto"
-              textAlign="left"
-              color="gray.600"
-              fontWeight="500"
-              fontSize="34"
-            >R$ 15.280,00</Text>
-          </Flex>          
-          <Flex
-            w="100%"
-            h="36"
-            bg="facebook.50"
-            px="10"
-            py="2"
-            borderRadius={12}
-            boxShadow="lg"
-            direction="column"
-            justify="space-between"
-          >
-            <Box
-              as="header"
-              display="flex"
-              alignContent="center"
-              justifyContent="space-between"
-               pt="4"
-            >
-              <Text
-                textAlign="left"
-                color="gray.600"
-                fontWeight="thin"
-                fontSize="26"
-              >Cashback adquirido</Text>
-              <Icon as={FaPercent} color="green.500" fontSize="28" />
-            </Box>
-
-            <Text
-              mt="auto"
-              textAlign="left"
-              color="gray.600"
-              fontWeight="500"
-              fontSize="34"
-            >180%</Text>
-          </Flex>          
-        </SimpleGrid>        
+        <SummaryPanel />
 
         <Flex
           py="4"
