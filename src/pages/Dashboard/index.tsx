@@ -1,6 +1,7 @@
 import React from 'react'
-import { Flex, Box, Text, SimpleGrid, Icon, Img } from '@chakra-ui/react'
+import { Flex, Box, Text, SimpleGrid, Icon, Img, Button, Table, Thead, Tbody, Tr, Td, Th, Badge } from '@chakra-ui/react'
 import { GiReceiveMoney } from 'react-icons/gi'
+import { GrAddCircle } from 'react-icons/gr'
 import { FaPercent } from 'react-icons/fa'
 
 import incomeImg from '../../assets/income.svg'
@@ -42,14 +43,15 @@ export function Dashboard() {
 
       <Flex
         as="main"
+        direction="column"
         maxW={1280}
         w="100%"
         bg="white"
         h="100%"
         my="0"
         mx="auto"
-        py="6"
-        px="4"
+        pt="8"
+        px="6"
       >
         <SimpleGrid
           w="100%"
@@ -57,6 +59,7 @@ export function Dashboard() {
           minChildWidth={360}
           flexDirection="row"
           gap="12"
+          my="6"
         >
           <Flex
             w="100%"
@@ -152,7 +155,7 @@ export function Dashboard() {
                 fontWeight="thin"
                 fontSize="26"
               >Cashback adquirido</Text>
-              <Icon as={FaPercent} color="green.500" fontSize="30" />
+              <Icon as={FaPercent} color="green.500" fontSize="28" />
             </Box>
 
             <Text
@@ -163,11 +166,139 @@ export function Dashboard() {
               fontSize="34"
             >180%</Text>
           </Flex>          
-          
-              
-                  
-                   
         </SimpleGrid>        
+
+        <Flex
+          py="4"
+          direction="column"
+        >
+          <Flex
+            align="center"
+            justify="space-between"
+            w="100%"
+          >
+            <Text
+              fontSize="21"
+              color="gray.900"
+              fontWeight="500"
+              textTransform="uppercase"
+            >Listagem de vendas realizadas</Text>
+            <Button
+              colorScheme="whatsapp"
+              p="6"
+              size="sm"
+              fontSize="16"
+              rightIcon={<Icon as={GrAddCircle} fontSize="18" color="red" />}
+            >
+              Cadastrar nova venda
+            </Button>
+          </Flex>
+
+          <Table 
+            variant="unstyled"  
+            colorScheme="facebook"
+            mt="8"
+          >
+            <Thead>
+              <Tr
+                bg="twitter.200"
+                borderRadius={8}
+              >
+                <Th
+                  color="gray.900"
+                  fontSize="14"
+                >
+                  Código da compra
+                </Th>
+                <Th
+                  color="gray.900"
+                  fontSize="14"
+                >
+                  Valor
+                </Th>
+                <Th
+                  color="gray.900"
+                  fontSize="14"
+                >
+                  Data
+                </Th>
+                <Th
+                  color="gray.900"
+                  fontSize="14"
+                >
+                  % de cashback aplicado
+                </Th>
+                <Th
+                  color="gray.900"
+                  fontSize="14"
+                >
+                  Valor de cashback
+                </Th>
+                <Th
+                  color="gray.900"
+                  fontSize="14"
+                >
+                  Status da compra
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody
+              alignContent="center"
+              justifyContent="center"
+              color="black"
+            >
+              <Tr
+                bg="gray.200"
+              >
+                <Td
+                  color="gray.700"
+                  fontSize="20"
+                >
+                  #001
+                </Td>
+                <Td
+                  color="gray.700"
+                  fontSize="20"
+                >
+                  R$ 180,00
+                </Td>
+                <Td
+                  color="gray.700"
+                  fontSize="20"
+                >
+                  09/10/2021
+                </Td>
+                <Td
+                  color="gray.700"
+                  fontSize="20"
+                >
+                  15%
+                </Td>
+                <Td
+                  color="gray.700"
+                  fontSize="20"
+                >
+                  R$ 27,00
+                </Td>
+                <Td
+                  display="flex"
+                  alignContent="center"
+                  justifyContent="center"
+                >
+                  <Badge colorScheme="green" bg="whatsapp.200" p="1" w="80%" borderRadius={8}>
+                    <Text
+                      textAlign="center"
+                      fontWeight="bold"
+                      letterSpacing="wide"
+                      color="whatsapp.900"
+                    >APROVADA</Text>
+                  </Badge>
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>
+
+        </Flex>
       </Flex>
 
 
