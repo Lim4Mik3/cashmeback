@@ -5,6 +5,8 @@ import { GrAddCircle } from 'react-icons/gr'
 import { FaPercent } from 'react-icons/fa'
 
 import incomeImg from '../../assets/income.svg'
+import { Logo } from '../../components/Logo'
+import { Header } from '../../components/Header'
 
 export function Dashboard() {
   return (
@@ -13,33 +15,7 @@ export function Dashboard() {
       h="100vh"
       direction="column"
     >
-      <Flex
-        as="header"
-        w="100%"
-        h="20"
-        bg="whiteAlpha.800"
-        align="center"
-        justify="center"
-        boxShadow="lg"
-        zIndex="9"
-      >
-        <Text
-            fontSize="30"
-            color="gray.900"
-            fontWeight="light"
-            letterSpacing="tight"
-          >Cashme
-            <Text
-              fontSize="30"
-              color="whatsapp.500"
-              display="inline-block"
-              fontWeight="bold"
-            >
-              BACK 🤑
-          </Text>
-        </Text>
-
-      </Flex>
+      <Header />
 
       <Flex
         as="main"
