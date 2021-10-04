@@ -1,8 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Box, Flex, Text, VStack, Button, Divider } from "@chakra-ui/react"
 import { Input } from "../../components/Form/Input"
 
 export function Login() {
+  const userHistory = useHistory();
+
   return (
     <Box
       h="100vh"
@@ -77,6 +80,7 @@ export function Login() {
         <Button
           w="100%"   
           colorScheme="linkedin"
+          onClick={() => userHistory.push("/signup")}
         >
           Criar uma conta
         </Button>
