@@ -1,4 +1,13 @@
 import { extendTheme } from '@chakra-ui/react'
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+
+const breakpoints = createBreakpoints({
+  sm: '480px',
+  md: '750px',
+  lg: '1366px',
+  xl: '1920'
+})
+
 
 export const theme = extendTheme({
   styles: {
@@ -20,4 +29,4 @@ export const theme = extendTheme({
     body: "Roboto",
     heading: "Roboto",
   },
-})
+}, breakpoints)
