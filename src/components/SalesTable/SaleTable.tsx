@@ -31,7 +31,7 @@ export function SaleTable() {
         justifyContent="center"
         color="black"
       >
-        <Tr bg="gray.200">
+        <Tr bg="gray.200" borderBottom="1px solid" borderColor="#666">
           <Td>
             #001
           </Td>

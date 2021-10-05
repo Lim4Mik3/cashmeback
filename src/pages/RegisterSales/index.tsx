@@ -1,7 +1,12 @@
 import React from 'react'
+import { Text } from "@chakra-ui/react"
+
+import { PrivateLayout } from '../../components/Layouts/PrivateLayout'
 
 export function RegisterSales() {
   return (
-    <h1>Olá</h1>
+    <PrivateLayout>
+      <Text color="gray.900">Bem vindo ao register sales</Text>
+    </PrivateLayout>
   )
 }

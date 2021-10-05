@@ -8,7 +8,7 @@ interface PublicLayoutProps {
 
 export function PublicLayout({ children }: PublicLayoutProps) {
   return (
-    <Flex h="100vh" w="100vw" justifyContent="center" align="center" px="4">
+    <Flex h="100vh" w="100vw" justifyContent="center" align="center" px="4" py="8">
       <Flex maxW={510} w="100%">
         {children}
       </Flex>      

@@ -14,6 +14,7 @@ export function Signup() {
         direction="column"
         bg="gray.200"
         w="100%"
+        my="4"
         p="10"
         borderRadius={8}
         align="center"
