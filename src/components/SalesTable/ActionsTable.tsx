@@ -7,7 +7,7 @@ export function ActionsTable() {
   const userHistory = useHistory();
 
   return (
-    <Flex align="center" justify="space-between" w="100%" pb="6">
+    <Flex align="center" justify="space-between" w="100%" pb={["4", "6"]}>
       <Text fontSize={["12", "16", "18"]} color="gray.900" fontWeight="700" textTransform="uppercase">
         Listagem de vendas realizadas
       </Text>

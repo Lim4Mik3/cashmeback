@@ -3,7 +3,7 @@ import { Table, Thead, Tr, Th, Tbody, Td, Badge, Text } from '@chakra-ui/react'
 
 export function SaleTable() {
   return (
-    <Table variant="unstyled" colorScheme="facebook" mt="8">
+    <Table variant="unstyled" colorScheme="facebook" mt={["2", "6"]}>
       <Thead>
         <Tr bg="twitter.200" borderRadius={8}>
           <Th>
