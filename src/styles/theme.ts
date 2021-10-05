@@ -6,6 +6,14 @@ export const theme = extendTheme({
       body: {
         bg: "linear-gradient(157deg, rgba(123,203,212,1) 0%, rgba(41,198,183,1) 100%)"
       },
+      Th: {
+        color: "gray.900",
+        fontSize: "14"
+      },
+      Td: {
+        color: "gray.700",
+        fontSize: "20"
+      }
     }
   },
   fonts: {
