@@ -4,7 +4,7 @@ import { Text } from '@chakra-ui/react'
 export function Logo() {
   return (
     <Text
-      fontSize="30"
+      fontSize={["18", "26", "28"]}
       color="gray.900"
       fontWeight="light"
       letterSpacing="tight"

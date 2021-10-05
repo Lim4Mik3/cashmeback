@@ -19,7 +19,7 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
         maxW={1280}
         w="100%"
         bg="white"
-        h="calc(100% - 80px)"
+        h="100%"
         mx="auto"
         pt="8"
         px="6"

@@ -19,10 +19,10 @@ export function Input({ name, label, ...rest }: InputProps) {
         bgColor="gray.300"
         variant="outline"
         color="blackAlpha.700"
+        size="md"
         _hover={{
           bgColor: 'gray.300'
-        }}
-        size="lg"
+        }}        
         { ...rest }
       />
     </FormControl>

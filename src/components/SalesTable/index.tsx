@@ -1,16 +1,19 @@
 import React from 'react'
-import { Flex } from '@chakra-ui/react'
+import { Flex, useBreakpointValue } from '@chakra-ui/react'
 
 import { ActionsTable } from './ActionsTable'
 import { SaleTable } from './SaleTable'
+import { SalesCard } from './SalesCard'
 
 
 export function SalesTable() {
+  const isWideVersion = useBreakpointValue({ sm: false, md: false, lg: true })
+
   return (
-    <Flex py="4" direction="column">
+    <Flex direction="column" align="center" justify="center" mb="12">
       <ActionsTable />
 
-      <SaleTable />
-    </Flex>
+      { isWideVersion ? (<SaleTable />) : (<SalesCard />)}
+      </Flex>
   )
 }

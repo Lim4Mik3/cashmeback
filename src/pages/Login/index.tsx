@@ -23,7 +23,7 @@ export function Login() {
         <Logo />          
 
         <Text
-          fontSize="18"
+          fontSize={["14", "16", "20"]}
           py="2"
           color="blue.600"
           letterSpacing="tighter"
@@ -32,7 +32,7 @@ export function Login() {
           Faça login revendedor
         </Text>
 
-        <VStack my="6" w="100%">
+        <VStack my="6" spacing={["2", "4"]} w="100%">
           <Input name="email" type="email" label="E-mail" />
           <Input name="password" type="password" label="Senha" />
         </VStack>

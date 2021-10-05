@@ -24,14 +24,14 @@ export function Signup() {
         <Logo />        
 
         <Text
-          fontSize="18"
+          fontSize={["14", "16", "20"]}
           py="2"
           color="blue.600"
           letterSpacing="tighter"
           textTransform="uppercase"
         >Cadastra-se revendedor</Text>
 
-        <VStack my="6" w="100%">
+        <VStack my="6" spacing={["2", "4"]} w="100%">
           <Input name="name" type="name" label="Nome completo"/>
           <Input name="cpf" type="number" label="CPF"/>
           <Input name="email" type="email" label="E-mail"/>

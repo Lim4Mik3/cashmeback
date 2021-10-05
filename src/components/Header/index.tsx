@@ -10,6 +10,8 @@ export function Header() {
       w="100%"
       h="20"
       bg="whiteAlpha.800"
+      align="center"
+      justify="center"
     >
       <Flex
         maxW={1280}
@@ -18,7 +20,7 @@ export function Header() {
         mx="auto"
         align="center"
         justify="space-between"
-        px="6"
+        px={["6", "8"]}
         zIndex="99"
       >
         <Logo />

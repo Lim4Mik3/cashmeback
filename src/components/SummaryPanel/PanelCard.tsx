@@ -11,11 +11,11 @@ interface PanelCardProps {
 export function PanelCard({ title, content, icon }: PanelCardProps) {
   return (
     <Flex
-      w="100%"
-      h="36"
+      w={["95%", "100%"]}
+      h={["28", "36"]}
       bg="facebook.50"
-      px="10"
-      py="2"
+      px={["8", "8", "10"]}
+      py="1"
       borderRadius={12}
       boxShadow="lg"
       direction="column"
@@ -26,17 +26,17 @@ export function PanelCard({ title, content, icon }: PanelCardProps) {
         display="flex"
         alignContent="center"
         justifyContent="space-between"
-        pt="4"
+        pt={["2", "2", "4"]}
       >
         <Text
           textAlign="left"
           color="gray.600"
           fontWeight="thin"
-          fontSize="26"
+          fontSize={["24", "24", "26"]}
         >
           {title}
         </Text>
-        <ChakraIcon as={icon} color="green.500" fontSize="30"/>
+        <ChakraIcon as={icon} color="green.500" fontSize={["24", "24", "30"]}/>
       </Box>
 
       <Text
@@ -44,7 +44,7 @@ export function PanelCard({ title, content, icon }: PanelCardProps) {
         textAlign="left"
         color="gray.600"
         fontWeight="500"
-        fontSize="34"
+        fontSize={["28", "28", "34"]}
       >
         {content}
       </Text>

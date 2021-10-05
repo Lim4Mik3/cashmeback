@@ -7,16 +7,17 @@ export function ActionsTable() {
   const userHistory = useHistory();
 
   return (
-    <Flex align="center" justify="space-between" w="100%">
-      <Text fontSize="18" color="gray.900" fontWeight="700" textTransform="uppercase">
+    <Flex align="center" justify="space-between" w="100%" pb="6">
+      <Text fontSize={["12", "16", "18"]} color="gray.900" fontWeight="700" textTransform="uppercase">
         Listagem de vendas realizadas
       </Text>
       <Button
         colorScheme="whatsapp"
         size="md"
-        fontSize="15"
+        fontSize={["12", "15"]}
+        px={["6", "8"]}
         alignContent="center"
-        rightIcon={<Icon as={GrAddCircle} fontSize="18" color="red" />}
+        rightIcon={<Icon as={GrAddCircle} fontSize={["16", "18"]} color="red" />}
         onClick={() => userHistory.push('/sale')}
       >
         Cadastrar nova venda
