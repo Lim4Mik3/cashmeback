@@ -39,7 +39,7 @@ export function Login() {
 
         <Button colorScheme="whatsapp" w="100%" mb="4">Entrar</Button>
 
-        <Button w="100%" colorScheme="linkedin"onClick={() => userHistory.push("/signup")}>
+        <Button w="100%" colorScheme="linkedin" onClick={() => userHistory.push("/signup")}>
           Criar uma conta
         </Button>
       </Flex>

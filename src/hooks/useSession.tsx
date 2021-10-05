@@ -5,11 +5,17 @@ interface SessionProviderProps {
   children: ReactNode;
 }
 
-const SessionContext = createContext({});
+interface SessionContextData {
+  userLogged: boolean;
+}
+
+const SessionContext = createContext<SessionContextData>({} as SessionContextData);
 
 export function SessionProvider({ children }: SessionProviderProps) {
+  const userLogged = false
+
   return (
-    <SessionContext.Provider value={{}}>
+    <SessionContext.Provider value={{ userLogged }}>
       {children}
     </SessionContext.Provider>
   )
