@@ -18,8 +18,9 @@ export function Input({ name, label, ...rest }: InputProps) {
         autoComplete="off"
         bgColor="gray.300"
         variant="outline"
-        color="blackAlpha.700"
+        color="black"
         size="md"
+        fontSize="20"
         _hover={{
           bgColor: 'gray.300'
         }}        
