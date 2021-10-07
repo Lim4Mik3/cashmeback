@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
+import { useToast } from '@chakra-ui/react';
 import { AxiosResponse } from 'axios'
 import { api } from '../services/api';
 
@@ -40,6 +41,8 @@ export function SessionProvider({ children }: SessionProviderProps) {
   const [user, setUser] = useState<UserData>({} as UserData)
   const [isAuthenticate, setIsAuthenticate] = useState(false);
 
+  
+
   useEffect(() => {
     const userToken = localStorage.getItem('@cashmeback.TOKEN')
     const user = localStorage.getItem('@cashmeback.USER')
@@ -64,8 +67,8 @@ export function SessionProvider({ children }: SessionProviderProps) {
       setIsAuthenticate(true);
       localStorage.setItem('@cashmeback.TOKEN', JSON.stringify(data.access_token))
       localStorage.setItem('@cashmeback.USER', JSON.stringify(data.user))
-    } catch (err) {
-      console.log(err)
+    } catch (error: any) {
+      throw new Error(`${error.response.data.error}`)
     }
   }
 

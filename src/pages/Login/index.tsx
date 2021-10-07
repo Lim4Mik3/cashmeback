@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Flex, Text, VStack, Button } from "@chakra-ui/react"
+import { Flex, Text, VStack, Button, useToast } from "@chakra-ui/react"
 import { Input } from "../../components/Form/Input"
 import { Logo } from '../../components/Logo';
 import { PublicLayout } from '../../components/Layouts/PublicLayout';
 import { useSession } from '../../hooks/useSession';
 import { FormEvent } from 'react-router/node_modules/@types/react';
+import * as yup from 'yup'
 
 export function Login() {
   const [email, setEmail] = useState('')
@@ -13,14 +14,41 @@ export function Login() {
   const userHistory = useHistory();
   const { Login } = useSession();
 
+  const toast = useToast();
+
+  const inputShape = yup.object().shape({
+    email: yup.string().email("Por favor insira um email no formato correto").required("O campo de E-mail é obrigatório"),
+    password: yup.string().min(5, "Um minímo de 5 caracteres para a senha").required("O campo de senha é obrigatório")
+  })
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    if(!(email.trim())) {
-      return;
-    }
+    inputShape.validate({ email, password })
+      .catch(err => {
+        toast({
+          title: 'Ops temos um erro',
+          description: err.message,
+          position: 'top',
+          status: 'error',
+          duration: 5000,
+          isClosable: true
+        })
+        return;
+      }) 
 
-    await Login({ email, password })
+    try {
+      await Login({ email, password })
+    } catch (err: any) {
+      toast({
+        title: 'Ops temos um erro',
+        description: err.message,
+        position: 'top',
+        status: 'error',
+        duration: 5000,
+        isClosable: true
+      })
+    }
   }
 
 
