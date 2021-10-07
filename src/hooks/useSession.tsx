@@ -7,34 +7,34 @@ interface SessionProviderProps {
 }
 
 interface SessionContextData {
-  Login: (data: userLoginInput) => Promise<void>;
+  Login: (data: UserLoginInput) => Promise<void>;
 }
 
-interface userData {
+interface UserData {
   id: number;
   name: string;
   email: string;
-  password: string;
+  password?: string;
   CPF: string;
 }
 
-type userLoginInput = Pick<userData, 'email' | 'password'>
+type UserLoginInput = Pick<UserData, 'email' | 'password'>
 
 const SessionContext = createContext<SessionContextData>({} as SessionContextData);
 
 export function SessionProvider({ children }: SessionProviderProps) {
-  const [user, setUser] = useState<userData>({} as userData)
+  const [user, setUser] = useState<UserData>({} as UserData)
   const browserHistory = useHistory();
 
-  async function Login({ email, password }: userLoginInput) {
-    const response = await api.get<userData>(`/users?email=${email}`)
+  async function Login({ email, password }: UserLoginInput) {
+    const response = await api.get<UserData>(`/users?email=${email}`)
 
     if (!!response.data) {
       console.log("nao há nenhum usuario com esse email");
       return;
     }
 
-    const user: userData = response.data;
+    const user: UserData = response.data;
 
     if (user.email === email && user.password === password) {
       setUser(user);

@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const { hashSync, compareSync  } = require('bcrypt')
 const { resolve } = require('path')
 const { json } = require('body-parser')
+const { v4 } = require('uuid')
 
 const server = jsonServer.create();
 
@@ -27,7 +28,7 @@ function verifyToken( token ){
   return jwt.verify(token, SECRET_KEY, (err, decode) => decode !== undefined ?  decode : err)
 }
 
-// Check if the user exists in database
+// Check if the user exists and the email and password are correct
 function isAuthenticated({ email, password }) {
   return userdb.users.find(user => user.email === email && compareSync(password, user.password) === true ? user : null);
 }
@@ -44,6 +45,8 @@ server.post('/auth/login', (req, res) => {
   if (!userIsAuthenticate) {
     return res.status(401).json({ error: 'Incorrect email or password'})
   }
+
+  delete userIsAuthenticate.password;
 
   const access_token = createToken(userIsAuthenticate)
 
@@ -66,7 +69,7 @@ server.post('/users', (req, res) => {
   const passwordHashed = hashSync(password, 8);
 
   const user = {
-    id: 
+    id: v4(),
     name, 
     cpf, 
     email, 
@@ -123,7 +126,7 @@ server.post('/sales', (req, res) => {
     return res.status(400).json({ error: 'Already exists a sale with this code'})
   }
 
-  salesdb.sales.push({ id: '1', user_id, sale_code, amount: amount * 100, sale_date, percent_cashback: 15, cashback_amount: (amount * (15/100)) * 100, sale_status: "APROVADA" })
+  salesdb.sales.push({ id: v4(), user_id, sale_code, amount: amount * 100, sale_date, percent_cashback: 15, cashback_amount: (amount * (15/100)) * 100, sale_status: "APROVADA" })
 
   fs.writeFileSync(resolve('./fake-api/sales.json'), JSON.stringify(salesdb));
 

@@ -5,7 +5,6 @@ import { ActionsTable } from './ActionsTable'
 import { SaleTable } from './SaleTable'
 import { SalesCard } from './SalesCard'
 
-
 export function SalesTable() {
   const isWideVersion = useBreakpointValue({ sm: false, md: false, lg: true })
 
