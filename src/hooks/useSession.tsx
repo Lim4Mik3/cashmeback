@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
+import { AxiosResponse } from 'axios'
 import { api } from '../services/api';
 
 interface SessionProviderProps {
@@ -8,42 +8,71 @@ interface SessionProviderProps {
 
 interface SessionContextData {
   Login: (data: UserLoginInput) => Promise<void>;
+  Logoff: () => void;
+  isAuthenticate: boolean;
+  user: UserData;
+  token: UserToken;
 }
 
-interface UserData {
-  id: number;
-  name: string;
+interface UserDataRequest {
+  access_token: string;
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    password?: string;
+    cpf: string;
+  }
+}
+
+interface UserLoginInput {
   email: string;
-  password?: string;
-  cpf: string;
+  password: string;
 }
 
-type UserLoginInput = Pick<UserData, 'email' | 'password'>
+type UserData = Pick<UserDataRequest, 'user'>;
+type UserToken = Pick<UserDataRequest, 'access_token'>;
 
 const SessionContext = createContext<SessionContextData>({} as SessionContextData);
 
 export function SessionProvider({ children }: SessionProviderProps) {
+  const [token, setToken] = useState<UserToken>({} as UserToken);
   const [user, setUser] = useState<UserData>({} as UserData)
-  const browserHistory = useHistory();
+  const isAuthenticate = !!user;
 
-  async function Login({ email, password }: UserLoginInput) {
-    const response = await api.get<UserData>(`/users?email=${email}`)
+  useEffect(() => {
+    const userToken = localStorage.getItem('@cashmeback.TOKEN')
 
-    if (!!response.data) {
-      console.log("nao há nenhum usuario com esse email");
+    if(!userToken) {
       return;
     }
 
-    const user: UserData = response.data;
+    setToken(JSON.parse(userToken));
+  }, [])
 
-    if (user.email === email && user.password === password) {
-      setUser(user);
-      browserHistory.push('/dashboard');
+  async function Login({ email, password }: UserLoginInput) {
+    try {
+      const { data }: AxiosResponse<UserDataRequest> = await api.post('/auth/login', {
+        email, 
+        password
+      }) 
+
+      setUser(data);
+
+      localStorage.setItem('@cashmeback.TOKEN', JSON.stringify(data.access_token))
+    } catch (err) {
+      console.log(err)
     }
   }
 
+  async function Logoff() {
+    localStorage.removeItem('@cashmeback.TOKEN');
+    setUser({} as UserData);
+    setToken({} as UserToken);
+  }
+
   return (
-    <SessionContext.Provider value={{ Login }}>
+    <SessionContext.Provider value={{ Login, Logoff, isAuthenticate, user, token }}>
       {children}
     </SessionContext.Provider>
   )
