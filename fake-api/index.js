@@ -50,7 +50,7 @@ server.post('/auth/login', (req, res) => {
 
   const access_token = createToken(userIsAuthenticate)
 
-  res.status(200).json({ access_token })
+  res.status(200).json({ access_token, user: userIsAuthenticate })
 })
 
 server.post('/users', (req, res) => {

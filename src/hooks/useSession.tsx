@@ -15,7 +15,7 @@ interface UserData {
   name: string;
   email: string;
   password?: string;
-  CPF: string;
+  cpf: string;
 }
 
 type UserLoginInput = Pick<UserData, 'email' | 'password'>
