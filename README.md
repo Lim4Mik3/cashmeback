@@ -54,3 +54,7 @@ yarn fake-api
 - O SISTEMA ESTÁ COM UM USUARIO FAKE INICIAL PARA TESTE E COM VENDAS FICTICIAS. 
 - email: admin@admin.com
 - senha: admin
+
+## TESTES UNITARIOS
+- Testes unitários executadas nos components e todos suites de testes OK.
+    Execute yarn test

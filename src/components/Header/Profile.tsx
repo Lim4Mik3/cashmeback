@@ -5,7 +5,7 @@ import { useSession } from '../../hooks/useSession'
  
 export function Profile() {
   const isWideVersion = useBreakpointValue({ sm: false, md: true })
-  const { Logoff } = useSession();
+  const { Logoff, user } = useSession();
 
   return (
     <Box display="flex" alignItems="center">
@@ -17,7 +17,7 @@ export function Profile() {
           textAlign="right"
           lineHeight="6"
         >
-        Leonardo Oliveira
+        { user.name }
           <Text 
             as="span"
             color="whatsapp.700" 
