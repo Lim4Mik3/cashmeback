@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react"
 
 import { Routes } from "./Routes"
 import { SessionProvider } from "./hooks/useSession"
+import { SalesContextProvider } from "./hooks/useSales"
 
 import { theme } from './styles/theme'
 
@@ -10,7 +11,9 @@ import { theme } from './styles/theme'
 export const App = () => (
   <ChakraProvider theme={theme}>
     <SessionProvider>
-      <Routes />
+      <SalesContextProvider>
+        <Routes />
+      </SalesContextProvider>
     </SessionProvider>
   </ChakraProvider>
 )

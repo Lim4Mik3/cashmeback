@@ -22,6 +22,9 @@ export const theme = extendTheme({
       Td: {
         color: "gray.700",
         fontSize: "20"
+      },
+      Tr: {
+        
       }
     }
   },

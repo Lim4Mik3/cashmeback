@@ -12,7 +12,9 @@ export function SalesTable() {
     <Flex direction="column" align="center" justify="center" mb="12">
       <ActionsTable />
 
-      { isWideVersion ? (<SaleTable />) : (<SalesCard />)}
+      { isWideVersion && <SaleTable /> }
+
+      { !isWideVersion && <SalesCard /> }
       </Flex>
   )
 }

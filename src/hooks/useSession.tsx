@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
-import { useToast } from '@chakra-ui/react';
 import { AxiosResponse } from 'axios'
 import { api } from '../services/api';
 
@@ -12,7 +11,7 @@ interface SessionContextData {
   Logoff: () => void;
   isAuthenticate: boolean;
   user: UserData;
-  token: UserToken;
+  token: string;
 }
 
 interface UserDataRequest {
@@ -31,17 +30,21 @@ interface UserLoginInput {
   password: string;
 }
 
-type UserData = Pick<UserDataRequest, 'user'>;
-type UserToken = Pick<UserDataRequest, 'access_token'>;
+type UserData = {
+  id: number;
+  name: string;
+  email: string;
+  password?: string;
+  cpf: string;
+}
 
 const SessionContext = createContext<SessionContextData>({} as SessionContextData);
 
 export function SessionProvider({ children }: SessionProviderProps) {
-  const [token, setToken] = useState<UserToken>({} as UserToken);
+  const [token, setToken] = useState('');
   const [user, setUser] = useState<UserData>({} as UserData)
   const [isAuthenticate, setIsAuthenticate] = useState(false);
 
-  
 
   useEffect(() => {
     const userToken = localStorage.getItem('@cashmeback.TOKEN')
@@ -63,7 +66,10 @@ export function SessionProvider({ children }: SessionProviderProps) {
         password
       }) 
 
-      setUser(data);
+      const { user, access_token } = data;
+
+      setUser(user);
+      setToken(access_token);
       setIsAuthenticate(true);
       localStorage.setItem('@cashmeback.TOKEN', JSON.stringify(data.access_token))
       localStorage.setItem('@cashmeback.USER', JSON.stringify(data.user))
@@ -77,7 +83,7 @@ export function SessionProvider({ children }: SessionProviderProps) {
     localStorage.removeItem('@cashmeback.USER');
     setIsAuthenticate(false);
     setUser({} as UserData);
-    setToken({} as UserToken);
+    setToken('');
   }
 
   return (

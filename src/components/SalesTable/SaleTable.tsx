@@ -1,7 +1,10 @@
 import React from 'react'
 import { Table, Thead, Tr, Th, Tbody, Td, Badge, Text } from '@chakra-ui/react'
+import { useSales } from '../../hooks/useSales'
 
 export function SaleTable() {
+  const { userSales } = useSales();
+
   return (
     <Table variant="unstyled" colorScheme="facebook" mt={["2", "6"]}>
       <Thead>
@@ -31,39 +34,49 @@ export function SaleTable() {
         justifyContent="center"
         color="black"
       >
-        <Tr bg="gray.200" borderBottom="1px solid" borderColor="#666">
-          <Td>
-            #001
-          </Td>
-          <Td>
-            R$ 180,00
-          </Td>
-          <Td>
-            09/10/2021
-          </Td>
-          <Td>
-            15%
-          </Td>
-          <Td>
-            R$ 27,00
-          </Td>
-          <Td
-            display="flex"
-            alignContent="center"
-            justifyContent="center"
-          >
-            <Badge colorScheme="green" bg="whatsapp.200" p="1" w="80%" borderRadius={8}>
-              <Text
-                textAlign="center"
-                fontWeight="bold"
-                letterSpacing="wide"
-                color="whatsapp.900"
-              >
-                APROVADA
-              </Text>
-            </Badge>
-          </Td>
-        </Tr>
+        { userSales.map((sale, index) => (
+          <Tr bg="gray.200" borderBottom="1px solid" borderColor="#666">
+            <Td>
+              {sale.sale_code}
+            </Td>
+            <Td>
+              { new Intl.NumberFormat('pt-BR', 
+                {
+                  style: 'currency',
+                  currency: 'BRL'
+                }).format(sale.amount / 100) }
+            </Td>
+            <Td>
+              { new Intl.DateTimeFormat('pt-BR').format(new Date(sale.sale_date)) }
+            </Td>
+            <Td>
+              {sale.percent_cashback}%
+            </Td>
+            <Td>
+              { new Intl.NumberFormat('pt-BR', 
+                {
+                  style: 'currency',
+                  currency: 'BRL'
+                }).format(sale.cashback_amount / 100) }
+            </Td>
+            <Td
+              display="flex"
+              alignContent="center"
+              justifyContent="center"
+            >
+              <Badge colorScheme="green" bg="whatsapp.200" p="1" w="80%" borderRadius={8}>
+                <Text
+                  textAlign="center"
+                  fontWeight="bold"
+                  letterSpacing="wide"
+                  color="whatsapp.900"
+                >
+                  {sale.sale_status}
+                </Text>
+              </Badge>
+            </Td>
+          </Tr>
+        )) }
       </Tbody>
     </Table>
   )
