@@ -85,7 +85,14 @@ server.post('/users', (req, res) => {
 
   fs.writeFileSync(resolve('./fake-api/users.json'), JSON.stringify(userdb))
 
-  return res.status(201).json({ info: "User created" });
+  const userReturn = {
+    id: user.id,
+    name: user.name, 
+    cpf: user.cpf,
+    email: user.email
+  }
+
+  return res.status(201).json(userReturn);
 })
 
 //Authentication token middleware 
