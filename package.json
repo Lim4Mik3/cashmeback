@@ -15,8 +15,10 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "axios": "^0.22.0",
+    "bcrypt": "^5.0.1",
     "framer-motion": "^4.0.0",
     "json-server": "^0.16.3",
+    "jsonwebtoken": "^8.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -29,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fake-api": "node fake-api/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
