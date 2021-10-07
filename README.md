@@ -15,8 +15,10 @@ Software desenvolvido como teste front-end, o aplicativo consiste em um sistema 
 ## Fotos da aplicação na pasta IMAGES
 
 ![](/images/img1.PNG)
+![](/images/img2.PNG)
 ![](/images/img3.PNG)
 ![](/images/img4.PNG)
+![](/images/img5.PNG)
 
 ## Requisitos do Teste
 
@@ -35,6 +37,14 @@ Software desenvolvido como teste front-end, o aplicativo consiste em um sistema 
 - [x] Respeitar boas práticas de código e arquitetura.
 - [x] Teste Unitário. UTILIZADO JEST, REACT TESTING
 
+
+## Obs: 
+ #### As informações de cashback, cashback acumulado e status da compra serão fornecidos por uma API 3ª, porém para que o sistema pudesse ficar mais dinamico implementei no backend essas informações de forma estática. As informações estão preenchidas com os seguintes valores fixos:
+ - CASHBACK: 15%
+ - VALOR DE CASHBACK: Calculado automático
+ - STATUS DA COMPRA: APROVADA.
+
+ Este estado pode rapidamente ser alterado no sistema visto que isto está acoplado apenas na fake api.
 
 ## Instalação da aplicação
 ### Clone o repositório e entre na pasta

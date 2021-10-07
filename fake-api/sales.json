@@ -1,3 +1,1 @@
-{
-  "sales": []
-}
+{"sales":[{"id":"06bc2ccc-0d4e-4c7a-afa1-a4728ab806b7","user_id":"64eefca9-41ad-439e-88ff-4738762f86c9","sale_code":"00BR0001","amount":28000,"sale_date":"2021-10-01","percent_cashback":15,"cashback_amount":4200,"sale_status":"APROVADA"},{"id":"4bc6da4c-4484-43d2-bb55-4edc4fe57a73","user_id":"64eefca9-41ad-439e-88ff-4738762f86c9","sale_code":"00br0002","amount":50000,"sale_date":"2021-10-22","percent_cashback":15,"cashback_amount":7500,"sale_status":"APROVADA"},{"id":"56fea31d-1f80-452d-939f-61e70ca1874c","user_id":"64eefca9-41ad-439e-88ff-4738762f86c9","sale_code":"00BR004","amount":78000,"sale_date":"2021-09-16","percent_cashback":15,"cashback_amount":11700,"sale_status":"APROVADA"}]}
