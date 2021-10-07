@@ -8,7 +8,7 @@ Software desenvolvido como teste front-end, o aplicativo consiste em um sistema 
 - Nome do aplicativo e interface criados por mim.
 - Interface amigavel seguindo conceitos de UI/UX e interface totalmente responsiva.
 - Fake API implementada com JSON-SERVER com hash de senha e autenticação JWT.
-- Utilização de Javascript para desenvolvimento
+- Utilização de Typescript para desenvolvimento
 - Rotas privadas controladas via session JWT.
 - Controle dos estados via ContextAPI.
 
