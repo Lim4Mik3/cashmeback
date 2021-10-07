@@ -1,59 +1,56 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# CASHMEBACK 🤑
+## _Software para revendedores controlarem seus lucros_
 
-## Available Scripts
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-In the project directory, you can run:
+Software desenvolvido como teste front-end, o aplicativo consiste em um sistema para controle dos lucros de revendedores, onde estes podem criar uma conta, fazer login autenticado, cadastrar suas vendas e obter informações de todas suas vendas bem como seus lucros estimados e acumulados.
 
-### `yarn start`
+- Nome do aplicativo e interface criados por mim.
+- Interface amigavel seguindo conceitos de UI/UX e interface totalmente responsiva.
+- Fake API implementada com JSON-SERVER com hash de senha e autenticação JWT.
+- Utilização de Javascript para desenvolvimento
+- Rotas privadas controladas via session JWT.
+- Controle dos estados via ContextAPI.
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Fotos da aplicação na pasta IMAGES
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+![]
 
-### `yarn test`
+## Requisitos do Teste
 
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
+- [x] Tela de cadastro de um novo revendedor;
+- [x] Tela de login para informar e-mail e senha;
+- [x] Tela de cadastro de compras; 
+- [x] Tela de listagem das compras cadastradas exibindo as informações; 
+- [x] Tela para exibir o valor de cashback acumulado até o momento; 
 
-### `yarn build`
+## Requisitos do Teste
 
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
+- [x] Utilize um destes frameworks. UTILIZADO REACT 
+- [x] Você pode utilizar um framework de UI. UTILIZADO CHAKRA UI.
+- [x] Design Responsivo .
+- [x] Integração com uma API 'fake'. API MOCKADO LOCAL HOST COM JSON SERVER
+- [x] Respeitar boas práticas de código e arquitetura.
+- [x] Teste Unitário. UTILIZADO JEST, REACT TESTING
 
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
 
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
+## Instalação da aplicação
+### Clone o repositório e entre na pasta
+Execute
+```sh
+yarn 
+yarn start
+yarn fake-api
+```
+ Aplicação front-end será executada na porta 3000 e o backend fake será executado na porta 3333;
 
-### `yarn eject`
+## FAKE API RESOURCES
+- /auth/login | POST | Recebe email e senha do usuário valida e faz a autenticação retornando token JWT.
+- /users | POST | Recebe dados do usuário valida e faz a criação de um novo usuário o retornando.
+- /sales | GET | *TOKEN NECESSÁRIO* | Recebe o ID do usuário via query params e retorna a lista de vendas para aquele usuário. 
+- /sales | POST | *TOKEN NECESSÁRIO* | Recebe o ID do usuário via query params, os dados da compra pelo corpo da requisição valida, cria uma nova venda retorna a lista de vendas para aquele usuário. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## FAKE API INITAL 
+- O SISTEMA ESTÁ COM UM USUARIO FAKE INICIAL PARA TESTE E COM VENDAS FICTICIAS. 
+- email: admin@admin.com
+- senha: admin

@@ -7,7 +7,6 @@ import { SalesContextProvider } from "./hooks/useSales"
 
 import { theme } from './styles/theme'
 
-
 export const App = () => (
   <ChakraProvider theme={theme}>
     <SessionProvider>
