@@ -46,11 +46,16 @@ server.post('/auth/login', (req, res) => {
     return res.status(401).json({ error: 'Incorrect email or password'})
   }
 
-  delete userIsAuthenticate.password;
-
   const access_token = createToken(userIsAuthenticate)
 
-  res.status(200).json({ access_token, user: userIsAuthenticate })
+  const userDTO = {
+    id: userIsAuthenticate.id,
+    name: userIsAuthenticate.name,
+    cpf: userIsAuthenticate.cpf,
+    email: userIsAuthenticate.email,
+  }
+
+  res.status(200).json({ access_token, user: userDTO })
 })
 
 server.post('/users', (req, res) => {
