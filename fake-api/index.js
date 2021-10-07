@@ -121,7 +121,7 @@ server.get('/sales', (req, res) => {
 })
 
 server.post('/sales', (req, res) => {
-  const user_id = Number(req.query.id);
+  const user_id = String(req.query.id);
   const { sale_code, amount, sale_date } = req.body;
 
   if(!user_id) {

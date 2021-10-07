@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useEffect, useState } from 'react'
+import React, { createContext, useContext, ReactNode, useState } from 'react'
 import { api } from '../services/api';
 import { useSession } from './useSession';
 

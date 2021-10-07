@@ -26,7 +26,7 @@ export function SummaryPanel() {
     >
       <PanelCard title="Vendas" content={`${userSales.length} vendas`} icon={FaStoreAlt} />
       <PanelCard title="Cashback acumulado" content={cashback_accumilated_parse} icon={GiReceiveMoney} />
-      <PanelCard title="Último cashback" content={`${last_cashback}%`} icon={FaPercent} />
+      <PanelCard title="Último cashback" content={`${last_cashback ? last_cashback : '0'}%`} icon={FaPercent} />
     </SimpleGrid>
   )
 }
