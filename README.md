@@ -14,7 +14,9 @@ Software desenvolvido como teste front-end, o aplicativo consiste em um sistema 
 
 ## Fotos da aplicação na pasta IMAGES
 
-![]
+![](/images/img1.PNG)
+![](/images/img3.PNG)
+![](/images/img4.PNG)
 
 ## Requisitos do Teste
 
