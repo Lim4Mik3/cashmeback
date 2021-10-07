@@ -11,6 +11,7 @@ export function Logo() {
     >
     Cashme
       <Text
+        as="span"
         color="whatsapp.500"
         display="inline-block"
         fontWeight="bold"

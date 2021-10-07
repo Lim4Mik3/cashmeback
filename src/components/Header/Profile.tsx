@@ -19,6 +19,7 @@ export function Profile() {
         >
         Leonardo Oliveira
           <Text 
+            as="span"
             color="whatsapp.700" 
             display="block" 
             fontSize="12" 

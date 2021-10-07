@@ -35,7 +35,7 @@ export function SaleTable() {
         color="black"
       >
         { userSales.map((sale, index) => (
-          <Tr bg="gray.200" borderBottom="1px solid" borderColor="#666">
+          <Tr key={index} bg="gray.200" borderBottom="1px solid" borderColor="#666">
             <Td>
               {sale.sale_code}
             </Td>
