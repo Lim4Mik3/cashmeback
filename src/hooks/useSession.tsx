@@ -38,16 +38,19 @@ const SessionContext = createContext<SessionContextData>({} as SessionContextDat
 export function SessionProvider({ children }: SessionProviderProps) {
   const [token, setToken] = useState<UserToken>({} as UserToken);
   const [user, setUser] = useState<UserData>({} as UserData)
-  const isAuthenticate = !!user;
+  const [isAuthenticate, setIsAuthenticate] = useState(false);
 
   useEffect(() => {
     const userToken = localStorage.getItem('@cashmeback.TOKEN')
+    const user = localStorage.getItem('@cashmeback.USER')
 
-    if(!userToken) {
+    if(!userToken || !user) {
       return;
     }
 
     setToken(JSON.parse(userToken));
+    setUser(JSON.parse(user));
+    setIsAuthenticate(true);
   }, [])
 
   async function Login({ email, password }: UserLoginInput) {
@@ -58,8 +61,9 @@ export function SessionProvider({ children }: SessionProviderProps) {
       }) 
 
       setUser(data);
-
+      setIsAuthenticate(true);
       localStorage.setItem('@cashmeback.TOKEN', JSON.stringify(data.access_token))
+      localStorage.setItem('@cashmeback.USER', JSON.stringify(data.user))
     } catch (err) {
       console.log(err)
     }
@@ -67,6 +71,8 @@ export function SessionProvider({ children }: SessionProviderProps) {
 
   async function Logoff() {
     localStorage.removeItem('@cashmeback.TOKEN');
+    localStorage.removeItem('@cashmeback.USER');
+    setIsAuthenticate(false);
     setUser({} as UserData);
     setToken({} as UserToken);
   }

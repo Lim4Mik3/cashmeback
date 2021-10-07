@@ -1,9 +1,11 @@
 import React from 'react'
 import { Box, Text, Icon, Button, useBreakpointValue } from '@chakra-ui/react'
 import { CgLogOff } from 'react-icons/cg'
+import { useSession } from '../../hooks/useSession'
  
 export function Profile() {
   const isWideVersion = useBreakpointValue({ sm: false, md: true })
+  const { Logoff } = useSession();
 
   return (
     <Box display="flex" alignItems="center">
@@ -37,6 +39,7 @@ export function Profile() {
         align="center"
         justify="center"
         title="Sair"
+        onClick={Logoff}
         _hover={{
           bg: "whatsapp.800"
         }}
