@@ -5,7 +5,6 @@
 
 Software desenvolvido como teste front-end, o aplicativo consiste em um sistema para controle dos lucros de revendedores, onde estes podem criar uma conta, fazer login autenticado, cadastrar suas vendas e obter informações de todas suas vendas bem como seus lucros estimados e acumulados.
 
-- Nome do aplicativo e interface criados por mim.
 - Interface amigavel seguindo conceitos de UI/UX e interface totalmente responsiva.
 - Fake API implementada com JSON-SERVER com hash de senha e autenticação JWT.
 - Utilização de Typescript para desenvolvimento
